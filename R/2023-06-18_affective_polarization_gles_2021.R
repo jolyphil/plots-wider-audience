@@ -14,7 +14,7 @@ gles <- gles_raw |>
   mutate(party_id = case_when(q75a %in% 1:3 ~ "Anhänger*innen der CDU/CSU",
                               q75a == 4 ~ "Anhänger*innen der SPD",
                               q75a == 5 ~ "Anhänger*innen der FDP",
-                              q75a == 6 ~ "Anhänger*innen der GRÜNE",
+                              q75a == 6 ~ "Anhänger*innen der GRÜNEN",
                               q75a == 7 ~ "Anhänger*innen der LINKE",
                               q75a == 322 ~ "Anhänger*innen der AfD")) |> 
   mutate(across(c(q17b, q17c, q17d, q17h, q17e, q17g, q17f), 
@@ -97,7 +97,7 @@ data_plot <- lapply(vars, df_one_var) |>
                                           "DIE LINKE"))),
          party_id = factor(party_id, levels = c("Anhänger*innen der SPD",
                                                 "Anhänger*innen der CDU/CSU",
-                                                "Anhänger*innen der GRÜNE",
+                                                "Anhänger*innen der GRÜNEN",
                                                 "Anhänger*innen der FDP",
                                                 "Anhänger*innen der AfD",
                                                 "Anhänger*innen der LINKE")),
@@ -143,4 +143,5 @@ data_plot |>
         plot.caption.position =  "plot",
         legend.position = "none") #NEW parameter
 
-ggsave("figures/2023-06-18_affective_polarization_gles_2021.png")
+ggsave("figures/2023-06-18_affective_polarization_gles_2021.png", 
+       width = 8, height = 6)
